@@ -1,0 +1,19 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header ">
+                </div>
+                <div class="card-body">
+                    <div class="col-sm-8 col-sm-offset-2">
+                            <div *ngFor='let sujet of sujets'>
+                                <button class="btn btn-default"  (click)="questionnaire(sujet)" >{{sujet}}</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
