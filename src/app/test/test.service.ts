@@ -7,14 +7,16 @@ import {Questionnaire} from '../questionnaire-list/questionnaire/questionnaire.m
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'http://localhost:8080/api';
+const apiUrl = 'http://localhost:8082/api';
 
 @Injectable()
 export class TestService {
+  private jwtToken = localStorage.getItem('token');
+  score:Number = 0 ;
     /* private dataSource = new BehaviorSubject<Questionnaire>();
     data = this.dataSource.asObservable();*/
   // quest: Observable<Questionnaire>;
-Q = new BehaviorSubject<Questionnaire>(null);
+Q = new Subject<Questionnaire>();
   constructor(private  httpclient: HttpClient) { }
   private extractData(res: Response) {
     const body = res;
@@ -30,6 +32,19 @@ setQuest(ques:Questionnaire) {
    console.log(ques);
    this.Q.next(ques);
     console.log(this.Q);
+}
+setScore(score) {
+    this.score=this.score+score ;
+}
+getScore(){
+    return this.score ;
+}
+GetApp():Observable<any> {
+  const url = `http://localhost:8080/api/lastapp`;
+  return this.httpclient.get(url, {
+      headers: new
+  HttpHeaders({'authorization': this.jwtToken})
+}).pipe(map(this.extractData)) ;
 }
 GetQuest():Observable<Questionnaire> {
   /*  this.Q = new Questionnaire(this.quest.id,this.quest.sujet,this.quest.nbques);
@@ -47,6 +62,20 @@ GetQuest():Observable<Questionnaire> {
   }
   getQuestionnaireBySujet(sujet: string): Observable<any> {
     const url = `${apiUrl}/bysujet?sujet=`+sujet;
+    console.log(url);
+    return this.httpclient.get(url , httpOptions).pipe(
+        map(this.extractData));
+  }
+  getQuestionstest(id:number): Observable<any> {
+    const url = `${apiUrl}/questiontest?id=`+id ;
+    // +`&id=`+id;
+    console.log(url);
+    return this.httpclient.get(url , httpOptions).pipe(
+        map(this.extractData));
+  }
+  getPropostionstest(id:number): Observable<any> {
+    const url = `${apiUrl}/propositiontest?id=`+id ;
+    // +`&id=`+id;
     console.log(url);
     return this.httpclient.get(url , httpOptions).pipe(
         map(this.extractData));

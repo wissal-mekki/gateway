@@ -15,7 +15,10 @@
                 <label for="type">
                   Type de la question
                 </label>
-                <input type="text" id="type" name="type" class="form-control"  ngModel required>
+                <input type="radio" name="type" id="type" value="checkbox" class="form-check-radio" required [(ngModel)]="type"> Checkbox<br>
+                <input type="radio" name="type" id="type" value="texte"  [(ngModel)]="type" required class="form-check-radio"> Texte<br>
+                <!-- <input type="checkbox" name="question" (change)="OnCheckboxSelect(proposition.contenu, $event)">
+                <input type="text" id="type" name="type" class="form-control"  ngModel required>-->
               </div>
                 <div class="form-group">
                     <label for="contenu">
@@ -29,11 +32,13 @@
                     </label>
                     <input type="text" id="reponse" name="reponse" class="form-control"  ngModel required>
                 </div>
+              <div *ngIf="type=='checkbox'">
               <div class="form-group">
                 <label for="nbprop">
                   Nombre de proposition
                 </label>
                 <input type="number" id="nbprop" name="nbprop" class="form-control"  ngModel  required>
+              </div>
               </div>
                 <!--div *ngIf="i < nbques" | paginate {itemsPerPage: 1 ,currentPage: p}">
                 <button type="submit" [disabled]="!questionForm.form.valid" class="btn-neutral">Suivant</button>

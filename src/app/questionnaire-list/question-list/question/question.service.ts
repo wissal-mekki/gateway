@@ -6,13 +6,18 @@ import {map} from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'http://localhost:8080/api';
+const apiUrl = 'http://localhost:8082/api';
 
 
 
 @Injectable()
 export class QuestionService {
     nbprop:any;
+    compteur:Number =  0;
+    p:Number =1 ;
+    nbques:Number ;
+    proposition_tab = [
+        ] ;
   constructor(private httpclient: HttpClient) {}
   /*  private extractData(res: Response) {
         let body = res.json();  // If response is a JSON use json()
@@ -27,7 +32,31 @@ export class QuestionService {
     const body = res;
     return body || {};
   }
-
+  serProp(prop,nbques) {
+      this.proposition_tab.push(prop);
+      this.nbques=nbques;
+  }
+  getProp(): {}[]  {
+   //y   console.log(this.proposition_tab);
+      return this.proposition_tab;
+  }
+  getnbques(): Number {
+      return this.nbques ;
+}
+    setCompteur(c){
+        this.compteur = c;
+        //  this.nbquestion=nbquestion;
+    }
+    getCompteur(){
+        return this.compteur ; // 'nbquestion':this.nbquestion}
+    }
+    setPage(p){
+        this.p = p;
+        //  this.nbquestion=nbquestion;
+    }
+    getPage():Number {
+        return this.p ; // 'nbquestion':this.nbquestion}
+    }
     private handleError(error: any) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message

@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="col-sm-8 col-sm-offset-2">
                             <div *ngFor='let sujet of sujets'>
-                                <button class="btn btn-default"  (click)="questionnaire(sujet)" >{{sujet}}</button>
+                                <button   [disabled]="!verify(sujet)"  class="btn btn-default"   (click)="questionnaire(sujet)" >{{sujet}}</button>
                             </div>
                     </div>
                 </div>

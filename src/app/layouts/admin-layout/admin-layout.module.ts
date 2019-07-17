@@ -29,6 +29,15 @@ import {TestComponent} from '../../test/test.component';
 import {TestService} from '../../test/test.service';
 import {QuestionDisplayComponent} from '../../test/questionnaire-display/question-display/question-display.component';
 import {QuestionnaireDisplayComponent} from '../../test/questionnaire-display/questionnaire-display.component';
+import {OfferListComponent} from '../../offer-list/offer-list.component';
+import {OfferComponent} from '../../offer-list/offer/offer.component';
+import {OfferService} from '../../offer-list/offer/offer.service';
+import {ApplicationComponent} from '../../application-list/application/application.component';
+import {ApplicationListComponent} from '../../application-list/application-list.component';
+import {ApplicationService} from '../../application-list/application/application.service';
+import {CheckDirective} from '../../check.directive';
+import {UserService} from '../../user/user.service';
+import {UserComponent} from '../../user/user.component';
 
 @NgModule({
   imports: [
@@ -55,7 +64,13 @@ import {QuestionnaireDisplayComponent} from '../../test/questionnaire-display/qu
       PropositionListComponent,
       TestComponent,
       QuestionDisplayComponent,
-      QuestionnaireDisplayComponent
+      QuestionnaireDisplayComponent,
+      OfferListComponent,
+      OfferComponent,
+      ApplicationComponent,
+      ApplicationListComponent,
+    CheckDirective,
+      QuestionnaireListComponent
   ],
   exports: [
     QuestionComponent
@@ -63,7 +78,9 @@ import {QuestionnaireDisplayComponent} from '../../test/questionnaire-display/qu
   providers: [QuestionnaireService,
     QuestionService,
   PropositionService,
-  TestService]
+  TestService,
+  OfferService,
+  ApplicationService]
 })
 
 export class AdminLayoutModule {}

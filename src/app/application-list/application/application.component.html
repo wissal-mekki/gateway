@@ -1,0 +1,54 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header ">
+          <h2>Postuler à l'offre ...</h2>
+        </div>
+        <div class="card-body">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form  #applicationForm="ngForm"  (ngSubmit)="addApplication(applicationForm.value)"  >
+              <div class="form-group">
+                <label for="cv">
+                  CV
+                </label>
+                <input type="file" id="cv" name="cv" class="form-control"  ngModel required>Telecharger
+              </div>
+              <div class="form-group">
+                <label for="lettre">
+                  Lettre de motivation
+                </label>
+                <input type="file" id="lettre" name="lettre" class="form-control"  ngModel required>Telecharger
+              </div>
+
+              <!--
+              <div class="form-group">
+                <label for="reponse">
+                  La Reponse
+                </label>
+                <input type="text" id="reponse" name="reponse" class="form-control"  ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="nbprop">
+                  Nombre de proposition
+                </label>
+                <input type="number" id="nbprop" name="nbprop" class="form-control"  ngModel  required>
+              </div> -->
+              <!--div *ngIf="i < nbques" | paginate {itemsPerPage: 1 ,currentPage: p}">
+              <button type="submit" [disabled]="!questionForm.form.valid" class="btn-neutral">Suivant</button>
+              </div>
+               <pagination-controls (pageChange)="p=$event"></pagination-controls>
+              -->
+              <div>
+                <button  type="submit" [disabled]="!applicationForm.form.valid"  class="btn btn-primary">Enregistrer</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

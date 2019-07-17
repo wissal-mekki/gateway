@@ -1,5 +1,5 @@
 
 <div *ngFor="let nb of arrayTwo(nbprop) | paginate: { itemsPerPage: 1, currentPage: p }">
   <app-proposition></app-proposition>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="p =$event" (pageChange)="setPage(p)" ></pagination-controls>
 </div>

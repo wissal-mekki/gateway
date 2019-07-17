@@ -7,15 +7,22 @@ import {map} from 'rxjs/operators';
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'http://localhost:8080/api';
-
+const apiUrl = 'http://localhost:8082/api';
 
 @Injectable()
 
 export class QuestionnaireService {
 nbques: Number ;
+nbquestion : Number ;
+p: Number = 1 ;
   constructor(private httpclient: HttpClient) {}
-
+    setPage(p) {
+        this.p = p;
+      //  this.nbquestion=nbquestion;
+    }
+    getPage():Number {
+      return this.p ; // 'nbquestion':this.nbquestion}
+    }
 SetNumber(nbques) {
       this.nbques=nbques;
 }

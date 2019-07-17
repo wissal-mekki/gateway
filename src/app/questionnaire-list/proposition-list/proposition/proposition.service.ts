@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import {Observable, Subject} from 'rxjs/Rx';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Question} from '../../question-list/question/question.model';
+import {Questionnaire} from '../../questionnaire/questionnaire.model';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'http://localhost:8080/api';
+const apiUrl = 'http://localhost:8082/api';
 @Injectable()
 export class PropositionService {
-
+  Q = new Subject<Question>();
   constructor(private httpclient: HttpClient) { }
   private extractData(res: Response) {
     const body = res;
@@ -28,12 +30,12 @@ export class PropositionService {
     return this.httpclient.get(url +id, httpOptions).pipe(
         map(this.extractData));
   }
- /*SetNumber(nbprop) {
-    this.nbprop=nbprop;
+ SeQuestionForProp(Q:Question) {
+    this.Q.next(Q) ;
   }
-  GetNumber(){
-    return this.nbprop ;
-  }*/
+  GetQuestionForProp(): Observable<Question> {
+    return this.Q.asObservable() ;
+  }
   getLastQuestion(): any {
     const url = `${apiUrl}/lastQuestion`;
     return this.httpclient.get(url, httpOptions).pipe(map(this.extractData))

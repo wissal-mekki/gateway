@@ -21,12 +21,23 @@ import { PropositionComponent } from './questionnaire-list/proposition-list/prop
 import { TestComponent } from './test/test.component';
 import { QuestionnaireDisplayComponent } from './test/questionnaire-display/questionnaire-display.component';
 import { QuestionDisplayComponent } from './test/questionnaire-display/question-display/question-display.component';
+import { OfferListComponent } from './offer-list/offer-list.component';
+import { OfferComponent } from './offer-list/offer/offer.component';
+import { ApplicationComponent } from './application-list/application/application.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
+import { CheckDirective } from './check.directive';
+import { LoginComponent } from './login/login.component';
+import {LoginService} from './login/login.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {UserComponent} from './user/user.component';
+import {User} from './user/user.model';
+import {UserService} from './user/user.service';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
@@ -35,8 +46,10 @@ import { QuestionDisplayComponent } from './test/questionnaire-display/question-
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+      UserComponent
   ],
-  providers: [],
+  providers: [LoginService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,9 @@
-
-
 <div *ngFor="let nb of arrayTwo(nbques) | paginate: { itemsPerPage: 1, currentPage: p }">
   <app-question></app-question>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls></pagination-controls>
 </div>
 
 <!--
+(pageChange)="p = $event" (pageChange)="setPage(p)"
 <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
 -->

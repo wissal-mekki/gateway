@@ -23,7 +23,7 @@ export class QuestionnaireComponent implements OnInit {
             'nbques': questionnaire['nbques']
         };
         this.questionnairehttp.addQuestionnaire(questionnairea).subscribe(res => {
-            console.log(res);
+           // y console.log(res);
         }, (err) => {
             console.log(err);
         });

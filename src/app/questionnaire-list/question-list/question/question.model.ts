@@ -1,5 +1,4 @@
 import {Questionnaire} from '../../questionnaire/questionnaire.model';
-
 export class Question {
     constructor(
         public id: number,

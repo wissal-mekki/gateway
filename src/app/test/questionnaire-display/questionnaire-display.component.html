@@ -6,28 +6,32 @@
             <div class="card ">
                 <div class="card-header ">
 
-                    <h2>Ajouter un questionnaire</h2>
+                    <h2>Test  {{ques.sujet}} </h2>
                 </div>
                 <div class="card-body">
                     <div class="col-sm-8 col-sm-offset-2">
-
+                        <div *ngFor="let question of questions | paginate: { itemsPerPage: 1, currentPage: p }">
+                            <app-question-display [question]="question" ></app-question-display>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        </div>
+<!--
                          <div class="form-group">
                                 <label>
-                              {{Q.id}}
+                              {{ques.id}}
                                 </label>
 
                             </div>
                             <div class="form-group">
                                 <label>
-                                    {{Q.sujet}}
+
                                 </label>
                             </div>
                         <div class="form-group">
                             <label>
-                                {{Q.nbques}}
+                                {{ques.nbques}}
                             </label>
                         </div>
-
+-->
 
                     </div>
                 </div>

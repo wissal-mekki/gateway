@@ -15,6 +15,11 @@ import {PropositionComponent} from '../../questionnaire-list/proposition-list/pr
 import {TestComponent} from '../../test/test.component';
 import {QuestionDisplayComponent} from '../../test/questionnaire-display/question-display/question-display.component';
 import {QuestionnaireDisplayComponent} from '../../test/questionnaire-display/questionnaire-display.component';
+import {OfferComponent} from '../../offer-list/offer/offer.component';
+import {OfferListComponent} from '../../offer-list/offer-list.component';
+import {ApplicationComponent} from '../../application-list/application/application.component';
+import {QuestionnaireListComponent} from '../../questionnaire-list/questionnaire-list.component';
+import {UserComponent} from '../../user/user.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -30,5 +35,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'proposition',  component: PropositionComponent },
     { path: 'test',  component: TestComponent },
     { path: 'quest-disp',  component: QuestionnaireDisplayComponent},
-    { path: 'question-disp',  component: QuestionDisplayComponent }
-];
+    { path: 'question-disp',  component: QuestionDisplayComponent },
+    { path: 'offers',  component: OfferListComponent },
+    { path: 'application',  component: ApplicationComponent },
+    { path: 'questionnaires',  component: QuestionnaireListComponent }
+    ];

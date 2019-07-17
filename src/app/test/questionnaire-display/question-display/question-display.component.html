@@ -1,0 +1,17 @@
+<form (ngSubmit)="Score(value)">
+    <div *ngIf="type=='checkbox'">
+    <label style="font-family: Consolas;font-size: x-large" > {{question.contenu}} </label>
+    <br>
+    <br>
+<div *ngFor="let proposition of propositions ">
+    <input type="radio" name="question" (change)="OnCheckboxSelect(proposition.contenu, $event)">{{proposition.contenu}}
+</div>
+</div>
+<div *ngIf="type=='texte'">
+    <label style="font-family: Consolas;font-size: x-large" > {{question.contenu}} </label>
+    <br>
+    <br>
+        <input type="texte" name="question" [(ngModel)]="value">
+</div>
+<button type="submit" class="btn bg-primary pull-right" >Suivant</button>
+</form>
